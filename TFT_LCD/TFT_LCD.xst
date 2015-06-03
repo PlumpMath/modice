@@ -1,0 +1,5 @@
+set -tmpdir "D:/ISE/TFT_LCD/xst/projnav.tmp"
+set -xsthdpdir "D:/ISE/TFT_LCD/xst"
+elaborate
+-ifn TFT_LCD.prj
+-ifmt mixed

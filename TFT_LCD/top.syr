@@ -1,0 +1,493 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.10 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc3s2000-4-fg456
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 8
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling vhdl file "D:/ISE/TFT_LCD/clk_25m.vhd" in Library work.
+Architecture behavioral of Entity clk_25m is up to date.
+Compiling vhdl file "D:/ISE/TFT_LCD/TFT_LCD.vhd" in Library work.
+Entity <tft_lcd> compiled.
+Entity <tft_lcd> (Architecture <behavioral>) compiled.
+Compiling vhdl file "D:/ISE/TFT_LCD/top.vhd" in Library work.
+Architecture behavioral of Entity top is up to date.
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for entity <top> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <clk_25m> in library <work> (architecture <behavioral>).
+
+Analyzing hierarchy for entity <TFT_LCD> in library <work> (architecture <behavioral>).
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing Entity <top> in library <work> (Architecture <behavioral>).
+WARNING:Xst:753 - "D:/ISE/TFT_LCD/top.vhd" line 71: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'clk_25m'.
+WARNING:Xst:753 - "D:/ISE/TFT_LCD/top.vhd" line 71: Unconnected output port 'CLK0_OUT' of component 'clk_25m'.
+WARNING:Xst:753 - "D:/ISE/TFT_LCD/top.vhd" line 71: Unconnected output port 'LOCKED_OUT' of component 'clk_25m'.
+Entity <top> analyzed. Unit <top> generated.
+
+Analyzing Entity <clk_25m> in library <work> (Architecture <behavioral>).
+    Set user-defined property "CAPACITANCE =  DONT_CARE" for instance <CLKIN_IBUFG_INST> in unit <clk_25m>.
+    Set user-defined property "IBUF_DELAY_VALUE =  0" for instance <CLKIN_IBUFG_INST> in unit <clk_25m>.
+    Set user-defined property "IBUF_LOW_PWR =  TRUE" for instance <CLKIN_IBUFG_INST> in unit <clk_25m>.
+    Set user-defined property "IOSTANDARD =  DEFAULT" for instance <CLKIN_IBUFG_INST> in unit <clk_25m>.
+    Set user-defined property "CLKDV_DIVIDE =  2.0000000000000000" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "CLKFX_DIVIDE =  8" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "CLKFX_MULTIPLY =  2" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "CLKIN_DIVIDE_BY_2 =  FALSE" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "CLKIN_PERIOD =  10.0000000000000000" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "CLKOUT_PHASE_SHIFT =  NONE" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "CLK_FEEDBACK =  1X" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "DESKEW_ADJUST =  SYSTEM_SYNCHRONOUS" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "DFS_FREQUENCY_MODE =  LOW" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "DLL_FREQUENCY_MODE =  LOW" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "DSS_MODE =  NONE" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "DUTY_CYCLE_CORRECTION =  TRUE" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "FACTORY_JF =  8080" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "PHASE_SHIFT =  0" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "SIM_MODE =  SAFE" for instance <DCM_INST> in unit <clk_25m>.
+    Set user-defined property "STARTUP_WAIT =  FALSE" for instance <DCM_INST> in unit <clk_25m>.
+Entity <clk_25m> analyzed. Unit <clk_25m> generated.
+
+Analyzing Entity <TFT_LCD> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "D:/ISE/TFT_LCD/TFT_LCD.vhd" line 88: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <vsync_cnt>, <hsync_cnt>
+Entity <TFT_LCD> analyzed. Unit <TFT_LCD> generated.
+
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <TFT_LCD>.
+    Related source file is "D:/ISE/TFT_LCD/TFT_LCD.vhd".
+WARNING:Xst:737 - Found 1-bit latch for signal <de_i>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 5-bit register for signal <b_data>.
+    Found 10-bit comparator greatequal for signal <de_i$cmp_ge0000> created at line 93.
+    Found 10-bit comparator lessequal for signal <de_i$cmp_le0000> created at line 93.
+    Found 6-bit register for signal <g_data>.
+    Found 10-bit comparator greatequal for signal <g_data$cmp_ge0000> created at line 147.
+    Found 10-bit comparator greater for signal <g_data$cmp_gt0000> created at line 151.
+    Found 10-bit comparator greater for signal <g_data$cmp_gt0001> created at line 147.
+    Found 10-bit comparator greater for signal <g_data$cmp_gt0002> created at line 144.
+    Found 10-bit comparator greater for signal <g_data$cmp_gt0003> created at line 143.
+    Found 10-bit comparator greater for signal <g_data$cmp_gt0004> created at line 142.
+    Found 10-bit comparator lessequal for signal <g_data$cmp_le0000> created at line 144.
+    Found 10-bit comparator lessequal for signal <g_data$cmp_le0001> created at line 147.
+    Found 10-bit comparator less for signal <g_data$cmp_lt0000> created at line 151.
+    Found 10-bit comparator less for signal <g_data$cmp_lt0001> created at line 147.
+    Found 10-bit comparator less for signal <g_data$cmp_lt0002> created at line 143.
+    Found 10-bit comparator less for signal <g_data$cmp_lt0003> created at line 142.
+    Found 10-bit up counter for signal <hsync_cnt>.
+    Found 5-bit register for signal <r_data>.
+    Found 10-bit up counter for signal <vsync_cnt>.
+    Summary:
+	inferred   2 Counter(s).
+	inferred  16 D-type flip-flop(s).
+	inferred  14 Comparator(s).
+Unit <TFT_LCD> synthesized.
+
+
+Synthesizing Unit <clk_25m>.
+    Related source file is "D:/ISE/TFT_LCD/clk_25m.vhd".
+Unit <clk_25m> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "D:/ISE/TFT_LCD/top.vhd".
+Unit <top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 3
+ 5-bit register                                        : 2
+ 6-bit register                                        : 1
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 14
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 5
+ 10-bit comparator less                                : 4
+ 10-bit comparator lessequal                           : 3
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <g_data_0> in Unit <u_tft_lcd> is equivalent to the following 5 FFs/Latches, which will be removed : <g_data_1> <g_data_2> <g_data_3> <g_data_4> <g_data_5> 
+INFO:Xst:2261 - The FF/Latch <b_data_0> in Unit <u_tft_lcd> is equivalent to the following 4 FFs/Latches, which will be removed : <b_data_1> <b_data_2> <b_data_3> <b_data_4> 
+INFO:Xst:2261 - The FF/Latch <r_data_0> in Unit <u_tft_lcd> is equivalent to the following 4 FFs/Latches, which will be removed : <r_data_1> <r_data_2> <r_data_3> <r_data_4> 
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# Counters                                             : 2
+ 10-bit up counter                                     : 2
+# Registers                                            : 16
+ Flip-Flops                                            : 16
+# Latches                                              : 1
+ 1-bit latch                                           : 1
+# Comparators                                          : 14
+ 10-bit comparator greatequal                          : 2
+ 10-bit comparator greater                             : 5
+ 10-bit comparator less                                : 4
+ 10-bit comparator lessequal                           : 3
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+INFO:Xst:2261 - The FF/Latch <g_data_0> in Unit <TFT_LCD> is equivalent to the following 5 FFs/Latches, which will be removed : <g_data_1> <g_data_2> <g_data_3> <g_data_4> <g_data_5> 
+INFO:Xst:2261 - The FF/Latch <r_data_0> in Unit <TFT_LCD> is equivalent to the following 4 FFs/Latches, which will be removed : <r_data_1> <r_data_2> <r_data_3> <r_data_4> 
+INFO:Xst:2261 - The FF/Latch <b_data_0> in Unit <TFT_LCD> is equivalent to the following 4 FFs/Latches, which will be removed : <b_data_1> <b_data_2> <b_data_3> <b_data_4> 
+
+Optimizing unit <top> ...
+
+Optimizing unit <TFT_LCD> ...
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 23
+ Flip-Flops                                            : 23
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 20
+
+Cell Usage :
+# BELS                             : 113
+#      GND                         : 1
+#      INV                         : 3
+#      LUT1                        : 18
+#      LUT2                        : 23
+#      LUT2_L                      : 2
+#      LUT3                        : 4
+#      LUT4                        : 18
+#      LUT4_D                      : 2
+#      LUT4_L                      : 2
+#      MUXCY                       : 18
+#      MUXF5                       : 1
+#      VCC                         : 1
+#      XORCY                       : 20
+# FlipFlops/Latches                : 24
+#      FDC                         : 10
+#      FDCE                        : 13
+#      LD                          : 1
+# Clock Buffers                    : 2
+#      BUFG                        : 2
+# IO Buffers                       : 20
+#      IBUF                        : 1
+#      IBUFG                       : 1
+#      OBUF                        : 18
+# DCMs                             : 1
+#      DCM                         : 1
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s2000fg456-4 
+
+ Number of Slices:                       38  out of  20480     0%  
+ Number of Slice Flip Flops:             23  out of  40960     0%  
+ Number of 4 input LUTs:                 72  out of  40960     0%  
+ Number of IOs:                          20
+ Number of bonded IOBs:                  20  out of    333     6%  
+    IOB Flip Flops:                       1
+ Number of GCLKs:                         2  out of      8    25%  
+ Number of DCMs:                          1  out of      4    25%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+--------------------------------------------------+-------------------------+-------+
+Clock Signal                                      | Clock buffer(FF name)   | Load  |
+--------------------------------------------------+-------------------------+-------+
+CLK                                               | u_clk_25m/DCM_INST:CLKFX| 23    |
+u_tft_lcd/de_i_not0001(u_tft_lcd/de_i_not000183:O)| NONE(*)(u_tft_lcd/de_i) | 1     |
+--------------------------------------------------+-------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+------------------------------------+-------------------------+-------+
+Control Signal                      | Buffer(FF name)         | Load  |
+------------------------------------+-------------------------+-------+
+RST_INV(u_tft_lcd/RSTB_inv1_INV_0:O)| NONE(u_tft_lcd/b_data_0)| 23    |
+------------------------------------+-------------------------+-------+
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 1.777ns (Maximum Frequency: 562.746MHz)
+   Minimum input arrival time before clock: 2.821ns
+   Maximum output required time after clock: 7.367ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'CLK'
+  Clock period: 1.777ns (frequency: 562.746MHz)
+  Total number of paths / destination ports: 493 / 36
+-------------------------------------------------------------------------
+Delay:               7.108ns (Levels of Logic = 4)
+  Source:            u_tft_lcd/hsync_cnt_2 (FF)
+  Destination:       u_tft_lcd/hsync_cnt_9 (FF)
+  Source Clock:      CLK rising 0.3X
+  Destination Clock: CLK rising 0.3X
+
+  Data Path: u_tft_lcd/hsync_cnt_2 to u_tft_lcd/hsync_cnt_9
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              3   0.720   1.246  u_tft_lcd/hsync_cnt_2 (u_tft_lcd/hsync_cnt_2)
+     LUT4_D:I0->LO         1   0.551   0.126  u_tft_lcd/de_i_mux0003110 (N10)
+     LUT4:I3->O            1   0.551   0.869  u_tft_lcd/vsync_cnt_cmp_eq0001_SW0 (N4)
+     LUT4:I2->O           20   0.551   1.740  u_tft_lcd/vsync_cnt_cmp_eq0001 (u_tft_lcd/vsync_cnt_cmp_eq0001)
+     LUT2:I1->O            1   0.551   0.000  u_tft_lcd/Mcount_hsync_cnt_eqn_01 (u_tft_lcd/Mcount_hsync_cnt_eqn_0)
+     FDC:D                     0.203          u_tft_lcd/hsync_cnt_0
+    ----------------------------------------
+    Total                      7.108ns (3.127ns logic, 3.981ns route)
+                                       (44.0% logic, 56.0% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'u_tft_lcd/de_i_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              2.821ns (Levels of Logic = 2)
+  Source:            RSTB (PAD)
+  Destination:       u_tft_lcd/de_i (LATCH)
+  Destination Clock: u_tft_lcd/de_i_not0001 falling
+
+  Data Path: RSTB to u_tft_lcd/de_i
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             3   0.821   1.246  RSTB_IBUF (RSTB_IBUF)
+     LUT3:I0->O            1   0.551   0.000  u_tft_lcd/de_i_mux000335 (u_tft_lcd/de_i_mux0003)
+     LD:D                      0.203          u_tft_lcd/de_i
+    ----------------------------------------
+    Total                      2.821ns (1.575ns logic, 1.246ns route)
+                                       (55.8% logic, 44.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'u_tft_lcd/de_i_not0001'
+  Total number of paths / destination ports: 1 / 1
+-------------------------------------------------------------------------
+Offset:              7.078ns (Levels of Logic = 1)
+  Source:            u_tft_lcd/de_i (LATCH)
+  Destination:       de (PAD)
+  Source Clock:      u_tft_lcd/de_i_not0001 falling
+
+  Data Path: u_tft_lcd/de_i to de
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q               1   0.633   0.801  u_tft_lcd/de_i (u_tft_lcd/de_i)
+     OBUF:I->O                 5.644          de_OBUF (de)
+    ----------------------------------------
+    Total                      7.078ns (6.277ns logic, 0.801ns route)
+                                       (88.7% logic, 11.3% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
+  Total number of paths / destination ports: 16 / 16
+-------------------------------------------------------------------------
+Offset:              7.367ns (Levels of Logic = 1)
+  Source:            u_tft_lcd/g_data_0 (FF)
+  Destination:       data_out<10> (PAD)
+  Source Clock:      CLK rising 0.3X
+
+  Data Path: u_tft_lcd/g_data_0 to data_out<10>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q             6   0.720   1.003  u_tft_lcd/g_data_0 (u_tft_lcd/g_data_0)
+     OBUF:I->O                 5.644          data_out_10_OBUF (data_out<10>)
+    ----------------------------------------
+    Total                      7.367ns (6.364ns logic, 1.003ns route)
+                                       (86.4% logic, 13.6% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 5.00 secs
+Total CPU time to Xst completion: 5.46 secs
+ 
+--> 
+
+Total memory usage is 251404 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :    5 (   0 filtered)
+Number of infos    :    8 (   0 filtered)
+

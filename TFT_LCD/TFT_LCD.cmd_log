@@ -1,0 +1,1 @@
+vhdtdtfi -prj TFT_LCD -o D:/ISE/TFT_LCD/TFT_LCD.vhi -module TFT_LCD -template D:/Xilinx/14.7/ISE_DS/ISE//data/vhdlinst.tft -deleteonerror -lib work TFT_LCD.vhd 

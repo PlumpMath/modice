@@ -1,0 +1,29 @@
+//! **************************************************************************
+// Written by: Map P.20131013 on Wed Jun 03 17:22:20 2015
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "RSTB" LOCATE = SITE "U14" LEVEL 1;
+PIN RSTB_pin<0> = BEL "RSTB" PINNAME PAD;
+PIN "RSTB_pin<0>" CLOCK_DEDICATED_ROUTE;
+COMP "lcd_clk" LOCATE = SITE "V16" LEVEL 1;
+COMP "data_out<10>" LOCATE = SITE "AA18" LEVEL 1;
+COMP "data_out<11>" LOCATE = SITE "AB18" LEVEL 1;
+COMP "data_out<12>" LOCATE = SITE "V17" LEVEL 1;
+COMP "data_out<13>" LOCATE = SITE "W17" LEVEL 1;
+COMP "data_out<0>" LOCATE = SITE "W14" LEVEL 1;
+COMP "data_out<1>" LOCATE = SITE "AB13" LEVEL 1;
+COMP "data_out<14>" LOCATE = SITE "Y17" LEVEL 1;
+COMP "data_out<2>" LOCATE = SITE "V18" LEVEL 1;
+COMP "data_out<15>" LOCATE = SITE "AA17" LEVEL 1;
+COMP "data_out<3>" LOCATE = SITE "Y16" LEVEL 1;
+COMP "data_out<4>" LOCATE = SITE "AA20" LEVEL 1;
+COMP "data_out<5>" LOCATE = SITE "AB20" LEVEL 1;
+COMP "data_out<6>" LOCATE = SITE "AA19" LEVEL 1;
+COMP "data_out<7>" LOCATE = SITE "AB19" LEVEL 1;
+COMP "data_out<8>" LOCATE = SITE "W18" LEVEL 1;
+COMP "data_out<9>" LOCATE = SITE "Y18" LEVEL 1;
+COMP "CLK" LOCATE = SITE "AB12" LEVEL 1;
+COMP "de" LOCATE = SITE "U16" LEVEL 1;
+SCHEMATIC END;
+

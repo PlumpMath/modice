@@ -1,0 +1,3 @@
+vhdl work "TFT_LCD.vhd"
+vhdl work "clk_25m.vhd"
+vhdl work "top.vhd"

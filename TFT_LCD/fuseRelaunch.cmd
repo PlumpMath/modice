@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -o "D:/ISE/TFT_LCD/top_isim_beh.exe" -prj "D:/ISE/TFT_LCD/top_beh.prj" "work.top" 

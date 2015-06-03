@@ -1,0 +1,23 @@
+net     clk      loc = ab12;     
+net     rstb     loc = u14;
+NET "RSTB" CLOCK_DEDICATED_ROUTE = TRUE; 
+
+NET lcd_clk     	LOC = V16;
+NET de    			LOC = U16;
+ 
+NET data_out<15>     LOC = AA17;
+NET data_out<14>     LOC = Y17 ;
+NET data_out<13>     LOC = W17 ;
+NET data_out<12>     LOC = V17 ;
+NET data_out<11>     LOC = AB18;
+NET data_out<10>     LOC = AA18;
+NET data_out<9>      LOC = Y18 ;
+NET data_out<8>      LOC = W18 ;
+NET data_out<7>      LOC = AB19;
+NET data_out<6>      LOC = AA19;
+NET data_out<5>      LOC = AB20;
+NET data_out<4>      LOC = AA20;
+NET data_out<3>      LOC = Y16 ;
+NET data_out<2>      LOC = V18 ;
+NET data_out<1>      LOC = AB13;
+NET data_out<0>      LOC = W14 ;
