@@ -34,21 +34,11 @@
 #define DEV_READ POSTFIX(NAME, read)
 
 #define DEV_FASYNC POSTFIX(NAME, fasync)
+#define DEV_PIR POSTFIX(NAME, pir)
 
 #define DEV_EXIT POSTFIX(NAME, exit)
 
 
 /* Limits */
-#define KUPIR_MAX_MSG 256
-
-/* Sensors */
-#define KUPIR_SENSOR 17
-
 /* IOCTL */
-#include "ku_pir_ioctl.h"
-
-/* List Entries */
-typedef struct _ku_pir_entry{
-	struct list_head entry;
-	ku_pir_data data;
-} ku_pir_entry;
+//#include "modice_ioctl.h"

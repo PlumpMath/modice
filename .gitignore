@@ -30,3 +30,12 @@
 
 # Debug files
 *.dSYM/
+
+
+#kernel driver object files
+*.mod.c
+*.symvers
+*.ko.cmd
+*.o.cmd
+*.order
+*.o.d

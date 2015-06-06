@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-NAME=ku_pir
+NAME=modice
 DEV="$NAME"_dev
 
 # remove device
@@ -8,4 +8,4 @@ rmmod "$NAME"
 rm /dev/"$DEV"
 
 # show log
-tail -f /var/log/messages -n 40
+dmesg | tail -n 20
