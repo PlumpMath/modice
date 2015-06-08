@@ -6,28 +6,33 @@ PWD := $(shell pwd)
 TESTNAME := test
 NAME := modice
 DEVNAME := $(NAME)_dev
-LIBNAME := $(NAME)_lib
-APPNAME := $(NAME)_app
+LIBNAME := gpio
+APPNAME := $(NAME)
 obj-m := $(NAME).o
-ccflags-y := -D NAME=$(NAME) -O -D DEBUG#TODO:comment DEBUG on demand
+ccflags-y := -D NAME=$(NAME) -O
 
-default:
+default:app copy_app
+
+driver:
 	$(MAKE) -C $(KDIR) M=$(PWD) $(ARM) modules
 	mv $(NAME).ko trg/
-	scp trg/$(NAME).ko root@192.168.25.18:~/
-	ssh root@192.168.25.18
 
 app:
-	$(CMPL)gcc -o trg/$(APPNAME) $(APPNAME).c $(LIBNAME).c -D NAME=$(NAME)
+	$(CMPL)gcc -o trg/$(APPNAME) $(APPNAME).c $(LIBNAME).c -lasound
 
 test:
 	$(CMPL)gcc -o trg/$(TESTNAME) $(TESTNAME).c -I $(KDIR)/include
-
+	scp trg/$(TESTNAME) root@192.168.25.18:~/
+	ssh root@192.168.25.18
 clean:
 	$(MAKE) -C $(KDIR) M=$(PWD) $(ARM) clean
 	rm trg/$(NAME).ko
 
-copy:
-	#sshpass -p pi scp trg/* root@203.252.182.222:~/
-	#scp trg/* pi@192.168.25.40:~/ESS/assignment1/trg/
+copy_driver:
 	scp trg/$(NAME).ko root@192.168.25.18:~/
+	ssh root@192.168.25.18
+copy_app:
+	scp trg/$(APPNAME) root@192.168.25.18:~/
+	ssh root@192.168.25.18
+connect:
+	ssh root@192.168.25.18
