@@ -39,3 +39,10 @@
 *.o.cmd
 *.order
 *.o.d
+
+# Windows
+Thumbs.db
+~*.xlsx
+
+# Linux
+.*

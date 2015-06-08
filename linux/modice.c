@@ -19,7 +19,6 @@ MODULE_LICENSE("GPL");
 //#include <asm/siginfo.h>
 
 #include <linux/time.h>
-
 //#include <sound/core.h>
 //#include <sound/control.h>
 //#include <sound/tlv.h>
@@ -31,12 +30,19 @@ MODULE_LICENSE("GPL");
 
 //static unsigned int sync_irq;
 char sndbuf[256]="";
-unsigned gpio = S5PC1XX_GPA0(0);
-int gpio_val = 1;
+unsigned gpio_size = S5PC1XX_GPIO_J0_NR;  //H1, L0, L2, K0 is already used
+unsigned gpio = S5PC1XX_GPJ0(0);
+int gpio_val = 0;
+int gpio_cnt = 0;
 static int DEV_READ(struct file *file, char *buf, size_t len, loff_t *lof){
-    sndbuf[0] = '0'+gpio_get_value(gpio);
-    sndbuf[1] = '\0';
-    copy_to_user(buf, sndbuf, 2);
+    int i, val = 0;
+    char *b;
+    for(i=0;i<gpio_size;i++){
+        gpio_direction_input(gpio+i);
+        val |= gpio_get_value(gpio+i);
+    }
+//    itoa(val, sndbuf, 10);
+    copy_to_user(buf, sndbuf, strlen(sndbuf)+1);
     DBG_PRTK("read\n");
     return 1;
 }
@@ -52,18 +58,17 @@ static int DEV_WRITE(struct file *file, const char *buf, size_t len, loff_t *lof
     int i;
 //    copy_from_user(sndbuf, buf, len);
 
-    DBG_PRTK("write : %d\n", gpio_val = !gpio_val);
+//    DBG_PRTK("write : %s\n", buf);
+//    DBG_PRTK("write : %d\n", gpio_val = !gpio_val);
 
-//    gpio_request(gpio, "GPIO");
-    for(i=0;i<S5PC1XX_GPIO_J0_NR;i++)
-        gpio_set_value(S5PC1XX_GPJ0(i), gpio_val);
-//    for(i=0;i<S5PC1XX_GPIO_J3_NR;i++)
-//        gpio_set_value(S5PC1XX_GPJ3(i), gpio_val);
-//    for(i=0;i<S5PC1XX_GPIO_J2_NR;i++)
-//        gpio_set_value(S5PC1XX_GPJ2(i), gpio_val);
-//    setup_timer(&timers, timer_act, 0);
-//    timers.expires = jiffies+100;
-//    add_timer(&timers);
+    if (gpio_val < 0xFF){
+        gpio_val++;
+        for(i=0;i<gpio_size;i++){
+            gpio_direction_output(gpio+i, 0);
+            gpio_set_value(gpio+i, (gpio_val>>i)&1);
+        }
+    }
+
 
     return 0;
 }
@@ -74,7 +79,11 @@ static int DEV_OPEN(struct inode *inode, struct file *file){
 }
 
 static int DEV_RELEASE(struct inode *inode, struct file *file){
+  int i;
 	DBG_PRTK("release\n");
+	for(i=0;i<gpio_size;i++)
+      gpio_direction_output(gpio+i, 0);
+
 	return 0;
 }
 
@@ -101,29 +110,19 @@ static void init_gpio(unsigned pin, unsigned val){
         DBG_PRTK("GPIO request error");
         return -1;
     }
-    gpio_direction_output(pin, val); //H3, H1, L, K0 is already used
+//    gpio_direction_output(pin, val);
 }
 static int __init DEV_INIT(void){
 //    int ret;
     int i;
     DBG_PRTK("Init Module\n");
-//    register_chrdev(0, DEV_NAME_STR, &DEV_FOPS);
     alloc_chrdev_region(&dev_num, 0, 1, DEV_NAME_STR);
     cd_cdev = cdev_alloc();
     cdev_init(cd_cdev, &DEV_FOPS);
     cdev_add(cd_cdev, dev_num, 1);
 
-
-    for(i=0;i<S5PC1XX_GPIO_J0_NR;i++)
-        init_gpio(S5PC1XX_GPJ0(i), 1);
-//    for(i=0;i<S5PC1XX_GPIO_J3_NR;i++)
-//        init_gpio(S5PC1XX_GPJ3(i), 0);
-//    for(i=0;i<S5PC1XX_GPIO_J2_NR;i++) //LEDs
-//        init_gpio(S5PC1XX_GPJ2(i), 0);
-//    gpio_set_value(gpio, gpio_val);
-//    gpio_request_array(gpio_out, ARRAY_SIZE(gpio_out));
-//    gpio_request_array(gpio_in, ARRAY_SIZE(gpio_in));
-
+    for(i=0;i<gpio_size;i++)
+        init_gpio(gpio+i, 1);
 
 //    sync_irq = gpio_to_irq(KUPIR_SENSOR);
 //    if ((ret = request_irq(sync_irq, DEV_PIR, IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING, xstr(DEV_PIR), NULL))){
@@ -138,13 +137,10 @@ static int __init DEV_INIT(void){
 void __exit DEV_EXIT(void){
     int i;
 //    free_irq(sync_irq, NULL);
-    gpio_free(gpio);
-    for(i=0;i<S5PC1XX_GPIO_J0_NR;i++)
-        gpio_free(S5PC1XX_GPJ0(i));
-    for(i=0;i<S5PC1XX_GPIO_J3_NR;i++)
-        gpio_free(S5PC1XX_GPJ3(i));
-//    for(i=0;i<S5PC1XX_GPIO_J2_NR;i++)
-//        gpio_free(S5PC1XX_GPJ2(i));
+    for(i=0;i<gpio_size;i++){
+        gpio_direction_output(gpio+i, 0);
+        gpio_free(gpio+i);
+    }
     cdev_del(cd_cdev);
     unregister_chrdev_region(dev_num, 1);
     DBG_PRTK("Exit Module\n");
