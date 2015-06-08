@@ -19,6 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -35,7 +37,10 @@ entity top is
 		data_out: out std_logic_vector(15 downto 0);
 		RSTB: in STD_LOGIC;
 		de: out STD_LOGIC;
-		lcd_clk: out STD_LOGIC
+		GPIO_IN: inout std_logic_vector(7 downto 0);
+		GPIO_OUT: inout std_logic_vector(7 downto 0);
+		lcd_clk: out STD_LOGIC;
+		LED : out  STD_LOGIC_VECTOR (23 downto 0)
 	);
 end top;
 
@@ -62,11 +67,27 @@ architecture Behavioral of top is
 	   port(
       CLK, RSTB : in std_logic;
       data_out : out std_logic_vector(15 downto 0);
-      de : out std_logic	-- data enable
+      de : out std_logic;	-- data enable
+		input: in STD_LOGIC_VECTOR(7 downto 0)	-- GPIO_IN
 		);
 	end component;
 
 begin
+
+	LED(7 downto 0) <= GPIO_IN;
+	LED(15 downto 8) <= (others => '0');
+	LED(23 downto 16) <= GPIO_OUT;
+
+	process (GPIO_IN)is
+		variable gin: integer range 0 to 255;
+	begin
+		gin := to_integer(unsigned(GPIO_IN));
+		if gin >= 127 then -- positive
+			GPIO_OUT <= std_logic_vector(to_unsigned(127+(gin-127)/2, GPIO_OUT'length));
+		else --negative
+			GPIO_OUT <= std_logic_vector(to_unsigned(127-(127-gin)/2, GPIO_OUT'length));
+		end if;
+	end process;
 
 	u_clk_25m: clk_25m
 		port map(
@@ -83,6 +104,7 @@ begin
 			CLK=> lcd_25m_clk,
 			RSTB=> RSTB,
 			data_out=> data_out,
+			input=> GPIO_IN,
 			de=> lcd_den
 		);
 		

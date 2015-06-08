@@ -3,8 +3,7 @@ Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
--n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf -ucf top.ucf -ucf
-u_tft_lcd.ucf
+-n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf -ucf top.ucf
 
 Design file:              top.ncd
 Physical constraint file: top.pcf
@@ -40,16 +39,42 @@ Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
+Setup/Hold to clock CLK
+------------+------------+------------+------------------+--------+
+            |Max Setup to|Max Hold to |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+GPIO_IN<0>  |   16.486(R)|  -10.588(R)|lcd_clk_OBUF      |   0.000|
+GPIO_IN<1>  |   16.955(R)|  -10.997(R)|lcd_clk_OBUF      |   0.000|
+GPIO_IN<2>  |   16.610(R)|  -10.720(R)|lcd_clk_OBUF      |   0.000|
+GPIO_IN<3>  |   15.795(R)|  -10.067(R)|lcd_clk_OBUF      |   0.000|
+GPIO_IN<4>  |   14.117(R)|   -8.805(R)|lcd_clk_OBUF      |   0.000|
+GPIO_IN<5>  |   13.406(R)|   -8.745(R)|lcd_clk_OBUF      |   0.000|
+GPIO_IN<6>  |   13.133(R)|   -8.526(R)|lcd_clk_OBUF      |   0.000|
+GPIO_IN<7>  |   14.952(R)|  -10.121(R)|lcd_clk_OBUF      |   0.000|
+------------+------------+------------+------------------+--------+
+
 Clock CLK to Pad
 ------------+------------+------------------+--------+
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-data_out<0> |    7.150(R)|lcd_clk_OBUF      |   0.000|
-data_out<1> |    7.844(R)|lcd_clk_OBUF      |   0.000|
-data_out<2> |    7.847(R)|lcd_clk_OBUF      |   0.000|
-data_out<3> |    5.956(R)|lcd_clk_OBUF      |   0.000|
-data_out<4> |    8.484(R)|lcd_clk_OBUF      |   0.000|
+data_out<0> |    8.091(R)|lcd_clk_OBUF      |   0.000|
+data_out<1> |    8.802(R)|lcd_clk_OBUF      |   0.000|
+data_out<2> |    8.273(R)|lcd_clk_OBUF      |   0.000|
+data_out<3> |    7.889(R)|lcd_clk_OBUF      |   0.000|
+data_out<4> |    7.880(R)|lcd_clk_OBUF      |   0.000|
+data_out<5> |    8.773(R)|lcd_clk_OBUF      |   0.000|
+data_out<6> |    8.041(R)|lcd_clk_OBUF      |   0.000|
+data_out<7> |    8.061(R)|lcd_clk_OBUF      |   0.000|
+data_out<8> |    7.661(R)|lcd_clk_OBUF      |   0.000|
+data_out<9> |    7.701(R)|lcd_clk_OBUF      |   0.000|
+data_out<10>|    6.941(R)|lcd_clk_OBUF      |   0.000|
+data_out<11>|    6.949(R)|lcd_clk_OBUF      |   0.000|
+data_out<12>|    7.282(R)|lcd_clk_OBUF      |   0.000|
+data_out<13>|    7.309(R)|lcd_clk_OBUF      |   0.000|
+data_out<14>|    8.350(R)|lcd_clk_OBUF      |   0.000|
+data_out<15>|    7.094(R)|lcd_clk_OBUF      |   0.000|
 ------------+------------+------------------+--------+
 
 Clock RSTB to Pad
@@ -57,7 +82,7 @@ Clock RSTB to Pad
             | clk (edge) |                      | Clock  |
 Destination |   to PAD   |Internal Clock(s)     | Phase  |
 ------------+------------+----------------------+--------+
-de          |    9.612(F)|u_tft_lcd/de_i_not0001|   0.000|
+de          |   10.929(F)|u_tft_lcd/de_i_not0001|   0.000|
 ------------+------------+----------------------+--------+
 
 Clock to Setup on destination clock CLK
@@ -65,7 +90,7 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    6.373|         |         |         |
+CLK            |   15.451|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock RSTB
@@ -73,8 +98,8 @@ Clock to Setup on destination clock RSTB
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |         |         |    7.745|         |
-RSTB           |         |         |    1.519|    1.519|
+CLK            |         |         |    8.662|         |
+RSTB           |         |         |    1.586|    1.586|
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
@@ -82,10 +107,116 @@ Pad to Pad
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
 CLK            |lcd_clk        |    7.160|
+GPIO_IN<0>     |GPIO_OUT<0>    |   12.578|
+GPIO_IN<0>     |GPIO_OUT<1>    |   11.871|
+GPIO_IN<0>     |GPIO_OUT<2>    |   11.654|
+GPIO_IN<0>     |GPIO_OUT<3>    |   11.004|
+GPIO_IN<0>     |GPIO_OUT<4>    |   12.042|
+GPIO_IN<0>     |GPIO_OUT<5>    |   13.825|
+GPIO_IN<0>     |GPIO_OUT<6>    |   14.859|
+GPIO_IN<0>     |GPIO_OUT<7>    |   14.339|
+GPIO_IN<0>     |LED<0>         |   14.009|
+GPIO_IN<0>     |LED<16>        |   15.015|
+GPIO_IN<0>     |LED<17>        |   14.442|
+GPIO_IN<0>     |LED<18>        |   14.547|
+GPIO_IN<0>     |LED<19>        |   15.076|
+GPIO_IN<0>     |LED<20>        |   15.780|
+GPIO_IN<0>     |LED<21>        |   16.560|
+GPIO_IN<0>     |LED<22>        |   22.861|
+GPIO_IN<0>     |LED<23>        |   18.111|
+GPIO_IN<1>     |GPIO_OUT<0>    |   12.133|
+GPIO_IN<1>     |GPIO_OUT<1>    |   11.335|
+GPIO_IN<1>     |GPIO_OUT<2>    |   11.481|
+GPIO_IN<1>     |GPIO_OUT<3>    |   10.756|
+GPIO_IN<1>     |GPIO_OUT<4>    |   11.794|
+GPIO_IN<1>     |GPIO_OUT<5>    |   13.577|
+GPIO_IN<1>     |GPIO_OUT<6>    |   14.611|
+GPIO_IN<1>     |GPIO_OUT<7>    |   14.091|
+GPIO_IN<1>     |LED<1>         |   14.571|
+GPIO_IN<1>     |LED<16>        |   14.570|
+GPIO_IN<1>     |LED<17>        |   13.906|
+GPIO_IN<1>     |LED<18>        |   14.374|
+GPIO_IN<1>     |LED<19>        |   14.828|
+GPIO_IN<1>     |LED<20>        |   15.532|
+GPIO_IN<1>     |LED<21>        |   16.312|
+GPIO_IN<1>     |LED<22>        |   22.613|
+GPIO_IN<1>     |LED<23>        |   17.863|
+GPIO_IN<2>     |GPIO_OUT<1>    |   11.210|
+GPIO_IN<2>     |GPIO_OUT<2>    |   11.358|
+GPIO_IN<2>     |GPIO_OUT<3>    |   10.374|
+GPIO_IN<2>     |GPIO_OUT<4>    |   11.412|
+GPIO_IN<2>     |GPIO_OUT<5>    |   13.195|
+GPIO_IN<2>     |GPIO_OUT<6>    |   14.229|
+GPIO_IN<2>     |GPIO_OUT<7>    |   13.709|
+GPIO_IN<2>     |LED<2>         |   13.871|
+GPIO_IN<2>     |LED<17>        |   13.781|
+GPIO_IN<2>     |LED<18>        |   14.251|
+GPIO_IN<2>     |LED<19>        |   14.446|
+GPIO_IN<2>     |LED<20>        |   15.150|
+GPIO_IN<2>     |LED<21>        |   15.930|
+GPIO_IN<2>     |LED<22>        |   22.231|
+GPIO_IN<2>     |LED<23>        |   17.481|
+GPIO_IN<3>     |GPIO_OUT<2>    |   12.280|
+GPIO_IN<3>     |GPIO_OUT<3>    |   10.295|
+GPIO_IN<3>     |GPIO_OUT<4>    |   11.333|
+GPIO_IN<3>     |GPIO_OUT<5>    |   13.116|
+GPIO_IN<3>     |GPIO_OUT<6>    |   14.150|
+GPIO_IN<3>     |GPIO_OUT<7>    |   13.630|
+GPIO_IN<3>     |LED<3>         |   12.944|
+GPIO_IN<3>     |LED<18>        |   15.173|
+GPIO_IN<3>     |LED<19>        |   14.367|
+GPIO_IN<3>     |LED<20>        |   15.071|
+GPIO_IN<3>     |LED<21>        |   15.851|
+GPIO_IN<3>     |LED<22>        |   22.152|
+GPIO_IN<3>     |LED<23>        |   17.402|
+GPIO_IN<4>     |GPIO_OUT<3>    |    9.982|
+GPIO_IN<4>     |GPIO_OUT<4>    |   10.871|
+GPIO_IN<4>     |GPIO_OUT<5>    |   12.296|
+GPIO_IN<4>     |GPIO_OUT<6>    |   13.330|
+GPIO_IN<4>     |GPIO_OUT<7>    |   12.810|
+GPIO_IN<4>     |LED<4>         |   15.655|
+GPIO_IN<4>     |LED<19>        |   14.054|
+GPIO_IN<4>     |LED<20>        |   14.609|
+GPIO_IN<4>     |LED<21>        |   15.031|
+GPIO_IN<4>     |LED<22>        |   21.332|
+GPIO_IN<4>     |LED<23>        |   16.582|
+GPIO_IN<5>     |GPIO_OUT<4>    |   10.649|
+GPIO_IN<5>     |GPIO_OUT<5>    |   11.230|
+GPIO_IN<5>     |GPIO_OUT<6>    |    9.842|
+GPIO_IN<5>     |GPIO_OUT<7>    |   12.100|
+GPIO_IN<5>     |LED<5>         |   14.310|
+GPIO_IN<5>     |LED<20>        |   14.387|
+GPIO_IN<5>     |LED<21>        |   13.965|
+GPIO_IN<5>     |LED<22>        |   17.844|
+GPIO_IN<5>     |LED<23>        |   15.872|
+GPIO_IN<6>     |GPIO_OUT<5>    |   12.151|
+GPIO_IN<6>     |GPIO_OUT<6>    |   10.508|
+GPIO_IN<6>     |GPIO_OUT<7>    |   13.030|
+GPIO_IN<6>     |LED<6>         |   16.274|
+GPIO_IN<6>     |LED<21>        |   14.886|
+GPIO_IN<6>     |LED<22>        |   18.510|
+GPIO_IN<6>     |LED<23>        |   16.802|
+GPIO_IN<7>     |GPIO_OUT<0>    |   12.418|
+GPIO_IN<7>     |GPIO_OUT<1>    |   11.635|
+GPIO_IN<7>     |GPIO_OUT<2>    |   11.737|
+GPIO_IN<7>     |GPIO_OUT<3>    |   10.697|
+GPIO_IN<7>     |GPIO_OUT<4>    |   11.663|
+GPIO_IN<7>     |GPIO_OUT<5>    |   12.165|
+GPIO_IN<7>     |GPIO_OUT<6>    |    9.835|
+GPIO_IN<7>     |GPIO_OUT<7>    |   12.232|
+GPIO_IN<7>     |LED<7>         |   15.195|
+GPIO_IN<7>     |LED<16>        |   14.855|
+GPIO_IN<7>     |LED<17>        |   14.206|
+GPIO_IN<7>     |LED<18>        |   14.630|
+GPIO_IN<7>     |LED<19>        |   14.769|
+GPIO_IN<7>     |LED<20>        |   15.401|
+GPIO_IN<7>     |LED<21>        |   14.900|
+GPIO_IN<7>     |LED<22>        |   17.837|
+GPIO_IN<7>     |LED<23>        |   16.004|
 ---------------+---------------+---------+
 
 
-Analysis completed Mon Jun 08 22:33:55 2015 
+Analysis completed Tue Jun 09 06:17:11 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:

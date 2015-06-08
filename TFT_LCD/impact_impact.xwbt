@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=D:\ISE\modice\TFT_LCD\impact.xsl
+OUTFILE=D:\ISE\modice\TFT_LCD\impact.xsl
+FAMILY=Multiple
+PART=Multiple
+WORKINGDIR=D:\ISE\modice\TFT_LCD
+LICENSE=iMPACT
+USER_INFO=iMPACT

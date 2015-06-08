@@ -9,33 +9,34 @@ Target Device  : xc3s2000
 Target Package : fg456
 Target Speed   : -4
 Mapper Version : spartan3 -- $Revision: 1.55 $
-Mapped Date    : Mon Jun 08 22:33:38 2015
+Mapped Date    : Tue Jun 09 06:16:57 2015
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    1
 Logic Utilization:
-  Number of Slice Flip Flops:            21 out of  40,960    1%
-  Number of 4 input LUTs:                49 out of  40,960    1%
+  Number of Slice Flip Flops:            22 out of  40,960    1%
+  Number of 4 input LUTs:                82 out of  40,960    1%
 Logic Distribution:
-  Number of occupied Slices:             37 out of  20,480    1%
-    Number of Slices containing only related logic:      37 out of      37 100%
-    Number of Slices containing unrelated logic:          0 out of      37   0%
+  Number of occupied Slices:             53 out of  20,480    1%
+    Number of Slices containing only related logic:      53 out of      53 100%
+    Number of Slices containing unrelated logic:          0 out of      53   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          67 out of  40,960    1%
-    Number used as logic:                49
-    Number used as a route-thru:         18
+  Total Number of 4 input LUTs:         102 out of  40,960    1%
+    Number used as logic:                82
+    Number used as a route-thru:         20
 
   The Slice Logic Distribution report is not meaningful if the design is
   over-mapped for a non-slice resource or if Placement fails.
 
-  Number of bonded IOBs:                 20 out of     333    6%
+  Number of bonded IOBs:                 60 out of     333   18%
     IOB Latches:                          1
+  Number of MULT18X18s:                   1 out of      40    2%
   Number of BUFGMUXs:                     2 out of       8   25%
   Number of DCMs:                         1 out of       4   25%
 
-Average Fanout of Non-Clock Nets:                2.86
+Average Fanout of Non-Clock Nets:                3.16
 
 Peak Memory Usage:  267 MB
 Total REAL time to MAP completion:  1 secs 
@@ -117,6 +118,46 @@ Section 6 - IOB Properties
 |                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
 +---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | CLK                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<0>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<1>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<2>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<3>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<4>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<5>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<6>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_IN<7>                         | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_OUT<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_OUT<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_OUT<2>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_OUT<3>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_OUT<4>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_OUT<5>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_OUT<6>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_OUT<7>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<3>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<4>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<5>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<6>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<7>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<8>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<9>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<10>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<11>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<12>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<13>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<14>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<15>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<16>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<17>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<18>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<19>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<20>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<21>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<22>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| LED<23>                            | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | RSTB                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
 | data_out<0>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
 | data_out<1>                        | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |

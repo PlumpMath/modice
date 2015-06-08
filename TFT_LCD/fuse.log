@@ -1,34 +1,20 @@
-Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o D:/ISE/TFT_LCD/top_isim_beh.exe -prj D:/ISE/TFT_LCD/top_beh.prj work.top 
+Running: D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\fuse.exe -intstyle ise -incremental -o D:/ISE/modice/TFT_LCD/TFT_LCD_isim_beh.exe -prj D:/ISE/modice/TFT_LCD/TFT_LCD_beh.prj work.TFT_LCD 
 ISim P.20131013 (signature 0x7708f090)
 Number of CPUs detected in this system: 4
 Turning on mult-threading, number of parallel sub-compilation jobs: 8 
 Determining compilation order of HDL files
-Parsing VHDL file "D:/ISE/TFT_LCD/TFT_LCD.vhd" into library work
-Parsing VHDL file "D:/ISE/TFT_LCD/clk_25m.vhd" into library work
-Parsing VHDL file "D:/ISE/TFT_LCD/top.vhd" into library work
+Parsing VHDL file "D:/ISE/modice/TFT_LCD/TFT_LCD.vhd" into library work
 Starting static elaboration
 Completed static elaboration
 Compiling package standard
 Compiling package std_logic_1164
+Compiling package std_logic_arith
+Compiling package std_logic_unsigned
 Compiling package numeric_std
-Compiling package vcomponents
-Compiling package textio
-Compiling package vital_timing
-Compiling package vital_primitives
-Compiling package vpkg
-Compiling architecture bufg_v of entity BUFG [bufg_default]
-Compiling architecture ibufg_v of entity IBUFG [\IBUFG("DONT_CARE","0",true,"DEF...]
-Compiling architecture dcm_clock_divide_by_2_v of entity dcm_clock_divide_by_2 [dcm_clock_divide_by_2_default]
-Compiling architecture dcm_maximum_period_check_v of entity dcm_maximum_period_check [\dcm_maximum_period_check("CLKIN...]
-Compiling architecture dcm_maximum_period_check_v of entity dcm_maximum_period_check [\dcm_maximum_period_check("PSCLK...]
-Compiling architecture dcm_clock_lost_v of entity dcm_clock_lost [dcm_clock_lost_default]
-Compiling architecture dcm_v of entity DCM [\DCM(2.0,8,2,false,10.0,"NONE","...]
-Compiling architecture behavioral of entity clk_25m [clk_25m_default]
-Compiling architecture behavioral of entity TFT_LCD [tft_lcd_default]
-Compiling architecture behavioral of entity top
+Compiling architecture behavioral of entity tft_lcd
 Time Resolution for simulation is 1ps.
-Waiting for 10 sub-compilation(s) to finish...
-Compiled 27 VHDL Units
-Built simulation executable D:/ISE/TFT_LCD/top_isim_beh.exe
-Fuse Memory Usage: 58308 KB
-Fuse CPU Usage: 968 ms
+Waiting for 1 sub-compilation(s) to finish...
+Compiled 6 VHDL Units
+Built simulation executable D:/ISE/modice/TFT_LCD/TFT_LCD_isim_beh.exe
+Fuse Memory Usage: 35272 KB
+Fuse CPU Usage: 671 ms

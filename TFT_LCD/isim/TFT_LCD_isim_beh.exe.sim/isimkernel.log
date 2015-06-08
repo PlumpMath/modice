@@ -1,0 +1,28 @@
+Command line:
+   TFT_LCD_isim_beh.exe
+     -simmode  gui
+     -simrunnum  0
+     -socket  50597
+
+Tue Jun 09 03:05:04 2015
+
+
+ Elaboration Time: 0.09375 sec
+
+ Current Memory Usage: 376.918 Meg
+
+ Total Signals          : 12
+ Total Nets             : 6448
+ Total Signal Drivers   : 9
+ Total Blocks           : 5
+ Total Primitive Blocks : 5
+ Total Processes        : 6
+ Total Traceable Variables  : 25
+ Total Scalar Nets and Variables : 6959
+
+ Total Simulation Time: 0.109375 sec
+
+ Current Memory Usage: 376.918 Meg
+
+Tue Jun 09 03:05:28 2015
+
