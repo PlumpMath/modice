@@ -9,22 +9,22 @@ Target Device  : xc3s2000
 Target Package : fg456
 Target Speed   : -4
 Mapper Version : spartan3 -- $Revision: 1.55 $
-Mapped Date    : Wed Jun 03 17:22:19 2015
+Mapped Date    : Mon Jun 08 22:33:38 2015
 
 Design Summary
 --------------
 Number of errors:      0
 Number of warnings:    1
 Logic Utilization:
-  Number of Slice Flip Flops:            23 out of  40,960    1%
-  Number of 4 input LUTs:                54 out of  40,960    1%
+  Number of Slice Flip Flops:            21 out of  40,960    1%
+  Number of 4 input LUTs:                49 out of  40,960    1%
 Logic Distribution:
   Number of occupied Slices:             37 out of  20,480    1%
     Number of Slices containing only related logic:      37 out of      37 100%
     Number of Slices containing unrelated logic:          0 out of      37   0%
       *See NOTES below for an explanation of the effects of unrelated logic.
-  Total Number of 4 input LUTs:          72 out of  40,960    1%
-    Number used as logic:                54
+  Total Number of 4 input LUTs:          67 out of  40,960    1%
+    Number used as logic:                49
     Number used as a route-thru:         18
 
   The Slice Logic Distribution report is not meaningful if the design is
@@ -35,7 +35,7 @@ Logic Distribution:
   Number of BUFGMUXs:                     2 out of       8   25%
   Number of DCMs:                         1 out of       4   25%
 
-Average Fanout of Non-Clock Nets:                2.90
+Average Fanout of Non-Clock Nets:                2.86
 
 Peak Memory Usage:  267 MB
 Total REAL time to MAP completion:  1 secs 

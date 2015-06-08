@@ -19,6 +19,8 @@
 ----------------------------------------------------------------------------------
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use IEEE.NUMERIC_STD.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -33,7 +35,9 @@ entity TFT_LCD is
    port(
       CLK, RSTB : in std_logic;
       data_out : out std_logic_vector(15 downto 0);
-      de : out std_logic	-- data enable
+      de : out std_logic;	-- data enable
+		GPIO_IN : inout STD_LOGIC_VECTOR(7 downto 0);
+      GPIO_OUT : inout  STD_LOGIC_VECTOR(7 downto 0)       
    );
 end TFT_LCD;
 
@@ -66,17 +70,17 @@ begin
 	process(CLK, RSTB)         --  sync 계산
 		begin
 			if	(RSTB = '0')then
-				hsync_cnt<= 0;
-				vsync_cnt<= 0;
+				hsync_cnt<= 1;
+				vsync_cnt<= 1;
 			elsif(rising_edge(CLK)) then
 				if(hsync_cnt=tHP)then
-					hsync_cnt<=0;
+					hsync_cnt<=1;
 				else
 					hsync_cnt<= hsync_cnt + 1;
 				end if;
 				if(hsync_cnt=tHP)then
 					if(vsync_cnt=tVP)then
-						vsync_cnt<=0;
+						vsync_cnt<=1;
 					else
 						vsync_cnt<=vsync_cnt + 1;
 					end if;
@@ -88,7 +92,7 @@ begin
 	process(CLK, RSTB)         --Data Enable
    begin
       if(RSTB = '0')then
-         de_i<='0';
+				de_i<='0';
       else
          if ((vsync_cnt >= (tVW + tVBP)) and (vsync_cnt <= (tVW + tVBP + tW ))) then
             if(hsync_cnt=(tHBP)) then
@@ -132,27 +136,40 @@ begin
 --      end if;
 --   end process;
 	
+	process (clk)is
+		variable gin: integer range 0 to 255;
+	begin
+		if rising_edge(clk) then
+			gin := to_integer(unsigned(GPIO_IN));
+			if gin >= 127 then -- positive
+				GPIO_OUT <= std_logic_vector(to_unsigned(127+(gin-127)/2, GPIO_OUT'length));
+			else --negative
+				GPIO_OUT <= std_logic_vector(to_unsigned(127-(127-gin)/2, GPIO_OUT'length));
+			end if;
+		end if;
+	end process;
+	
 	process(CLK, RSTB)         --출력할 이미지. R,G,B가 화면상에 번갈아 출력
    begin
       if (RSTB='0')then
          r_data<= (others=>'0');
          g_data<= (others=>'0');
          b_data<= (others=>'0');
-      elsif (rising_edge(CLK)) then
+      elsif (rising_edge(clk)) then
          if ( (vsync_cnt >= (tVW + tVBP)) and (vsync_cnt <= (tVW + tVBP + tW )) ) then
             if ( (hsync_cnt >= (tHW + tHBP-1)) and ( hsync_cnt <= (tHW + tHBP + 799)) ) then
-               if( ( vsync_cnt >= (tVW + tVBP -1 )) and ( vsync_cnt <= (tVW + tVBP +159))) then
-                  r_data <= "11111";
-                  g_data <= (others=>'0');
-                  b_data <= (others=>'0');
-               elsif ( ( vsync_cnt >= (tVW + tVBP +160 )) and ( vsync_cnt <= (tVW + tVBP +319))) then
-                  r_data<= (others=>'0');
-                  g_data<= "111111";
-                  b_data<= (others=>'0');    
-               elsif ( ( vsync_cnt >= (tVW + tVBP +320 )) and ( vsync_cnt <= (tVW + tVBP + 479))) then
-                  r_data<= (others=>'0');
-                  g_data<= (others=>'0');
-                  b_data<= "11111";   
+               if  vsync_cnt >= (tVW + tVBP-1) then
+                  r_data <= (others=>'0');
+                  g_data <= "000000";
+                  b_data <= "11111";
+--               elsif ( ( vsync_cnt >= (tVW + tVBP +160 )) and ( vsync_cnt <= (tVW + tVBP +319))) then
+--                  r_data<= (others=>'0');
+--                  g_data<= "111111";
+--                  b_data<= (others=>'0');    
+--               elsif ( ( vsync_cnt >= (tVW + tVBP +320 )) and ( vsync_cnt <= (tVW + tVBP + 479))) then
+--                  r_data<= (others=>'0');
+--                  g_data<= (others=>'0');
+--                  b_data<= "11111";   
                end if;
             end if; 
          end if;

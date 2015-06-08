@@ -3,7 +3,8 @@ Release 14.7 Trace  (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 D:\Xilinx\14.7\ISE_DS\ISE\bin\nt64\unwrapped\trce.exe -intstyle ise -v 3 -s 4
--n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf -ucf top.ucf
+-n 3 -fastpaths -xml top.twx top.ncd -o top.twr top.pcf -ucf top.ucf -ucf
+u_tft_lcd.ucf
 
 Design file:              top.ncd
 Physical constraint file: top.pcf
@@ -44,22 +45,11 @@ Clock CLK to Pad
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-data_out<0> |    6.856(R)|lcd_clk_OBUF      |   0.000|
-data_out<1> |    7.567(R)|lcd_clk_OBUF      |   0.000|
-data_out<2> |    8.433(R)|lcd_clk_OBUF      |   0.000|
-data_out<3> |    5.991(R)|lcd_clk_OBUF      |   0.000|
-data_out<4> |    8.902(R)|lcd_clk_OBUF      |   0.000|
-data_out<5> |    9.474(R)|lcd_clk_OBUF      |   0.000|
-data_out<6> |    8.509(R)|lcd_clk_OBUF      |   0.000|
-data_out<7> |    9.848(R)|lcd_clk_OBUF      |   0.000|
-data_out<8> |    8.174(R)|lcd_clk_OBUF      |   0.000|
-data_out<9> |   10.189(R)|lcd_clk_OBUF      |   0.000|
-data_out<10>|    7.476(R)|lcd_clk_OBUF      |   0.000|
-data_out<11>|    7.247(R)|lcd_clk_OBUF      |   0.000|
-data_out<12>|    7.123(R)|lcd_clk_OBUF      |   0.000|
-data_out<13>|    7.587(R)|lcd_clk_OBUF      |   0.000|
-data_out<14>|    6.964(R)|lcd_clk_OBUF      |   0.000|
-data_out<15>|    6.744(R)|lcd_clk_OBUF      |   0.000|
+data_out<0> |    7.150(R)|lcd_clk_OBUF      |   0.000|
+data_out<1> |    7.844(R)|lcd_clk_OBUF      |   0.000|
+data_out<2> |    7.847(R)|lcd_clk_OBUF      |   0.000|
+data_out<3> |    5.956(R)|lcd_clk_OBUF      |   0.000|
+data_out<4> |    8.484(R)|lcd_clk_OBUF      |   0.000|
 ------------+------------+------------------+--------+
 
 Clock RSTB to Pad
@@ -67,7 +57,7 @@ Clock RSTB to Pad
             | clk (edge) |                      | Clock  |
 Destination |   to PAD   |Internal Clock(s)     | Phase  |
 ------------+------------+----------------------+--------+
-de          |    9.633(F)|u_tft_lcd/de_i_not0001|   0.000|
+de          |    9.612(F)|u_tft_lcd/de_i_not0001|   0.000|
 ------------+------------+----------------------+--------+
 
 Clock to Setup on destination clock CLK
@@ -75,7 +65,7 @@ Clock to Setup on destination clock CLK
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |    6.205|         |         |         |
+CLK            |    6.373|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock RSTB
@@ -83,8 +73,8 @@ Clock to Setup on destination clock RSTB
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-CLK            |         |         |    7.576|         |
-RSTB           |         |         |    1.477|    1.477|
+CLK            |         |         |    7.745|         |
+RSTB           |         |         |    1.519|    1.519|
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
@@ -95,7 +85,7 @@ CLK            |lcd_clk        |    7.160|
 ---------------+---------------+---------+
 
 
-Analysis completed Wed Jun 03 17:22:35 2015 
+Analysis completed Mon Jun 08 22:33:55 2015 
 --------------------------------------------------------------------------------
 
 Trace Settings:

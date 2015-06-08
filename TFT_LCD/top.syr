@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.10 secs
+Total CPU time to Xst completion: 0.11 secs
  
 --> Reading design: top.prj
 
@@ -104,12 +104,12 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "D:/ISE/TFT_LCD/clk_25m.vhd" in Library work.
+Compiling vhdl file "D:/ISE/modice/TFT_LCD/clk_25m.vhd" in Library work.
 Architecture behavioral of Entity clk_25m is up to date.
-Compiling vhdl file "D:/ISE/TFT_LCD/TFT_LCD.vhd" in Library work.
+Compiling vhdl file "D:/ISE/modice/TFT_LCD/TFT_LCD.vhd" in Library work.
 Entity <tft_lcd> compiled.
 Entity <tft_lcd> (Architecture <behavioral>) compiled.
-Compiling vhdl file "D:/ISE/TFT_LCD/top.vhd" in Library work.
+Compiling vhdl file "D:/ISE/modice/TFT_LCD/top.vhd" in Library work.
 Architecture behavioral of Entity top is up to date.
 
 =========================================================================
@@ -126,9 +126,11 @@ Analyzing hierarchy for entity <TFT_LCD> in library <work> (architecture <behavi
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <top> in library <work> (Architecture <behavioral>).
-WARNING:Xst:753 - "D:/ISE/TFT_LCD/top.vhd" line 71: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'clk_25m'.
-WARNING:Xst:753 - "D:/ISE/TFT_LCD/top.vhd" line 71: Unconnected output port 'CLK0_OUT' of component 'clk_25m'.
-WARNING:Xst:753 - "D:/ISE/TFT_LCD/top.vhd" line 71: Unconnected output port 'LOCKED_OUT' of component 'clk_25m'.
+WARNING:Xst:753 - "D:/ISE/modice/TFT_LCD/top.vhd" line 71: Unconnected output port 'CLKIN_IBUFG_OUT' of component 'clk_25m'.
+WARNING:Xst:753 - "D:/ISE/modice/TFT_LCD/top.vhd" line 71: Unconnected output port 'CLK0_OUT' of component 'clk_25m'.
+WARNING:Xst:753 - "D:/ISE/modice/TFT_LCD/top.vhd" line 71: Unconnected output port 'LOCKED_OUT' of component 'clk_25m'.
+WARNING:Xst:754 - "D:/ISE/modice/TFT_LCD/top.vhd" line 81: Unconnected inout port 'GPIO_IN' of component 'TFT_LCD'.
+WARNING:Xst:754 - "D:/ISE/modice/TFT_LCD/top.vhd" line 81: Unconnected inout port 'GPIO_OUT' of component 'TFT_LCD'.
 Entity <top> analyzed. Unit <top> generated.
 
 Analyzing Entity <clk_25m> in library <work> (Architecture <behavioral>).
@@ -155,8 +157,10 @@ Analyzing Entity <clk_25m> in library <work> (Architecture <behavioral>).
 Entity <clk_25m> analyzed. Unit <clk_25m> generated.
 
 Analyzing Entity <TFT_LCD> in library <work> (Architecture <behavioral>).
-WARNING:Xst:819 - "D:/ISE/TFT_LCD/TFT_LCD.vhd" line 88: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+WARNING:Xst:819 - "D:/ISE/modice/TFT_LCD/TFT_LCD.vhd" line 92: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
    <vsync_cnt>, <hsync_cnt>
+INFO:Xst:2679 - Register <r_data> in unit <TFT_LCD> has a constant value of 00000 during circuit operation. The register is replaced by logic.
+INFO:Xst:2679 - Register <g_data> in unit <TFT_LCD> has a constant value of 000000 during circuit operation. The register is replaced by logic.
 Entity <TFT_LCD> analyzed. Unit <TFT_LCD> generated.
 
 
@@ -167,61 +171,68 @@ Entity <TFT_LCD> analyzed. Unit <TFT_LCD> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <TFT_LCD>.
-    Related source file is "D:/ISE/TFT_LCD/TFT_LCD.vhd".
+    Related source file is "D:/ISE/modice/TFT_LCD/TFT_LCD.vhd".
 WARNING:Xst:737 - Found 1-bit latch for signal <de_i>. Latches may be generated from incomplete case or if statements. We do not recommend the use of latches in FPGA/CPLD designs, as they may lead to timing problems.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 8-bit register for signal <GPIO_OUT>.
     Found 5-bit register for signal <b_data>.
-    Found 10-bit comparator greatequal for signal <de_i$cmp_ge0000> created at line 93.
-    Found 10-bit comparator lessequal for signal <de_i$cmp_le0000> created at line 93.
-    Found 6-bit register for signal <g_data>.
-    Found 10-bit comparator greatequal for signal <g_data$cmp_ge0000> created at line 147.
-    Found 10-bit comparator greater for signal <g_data$cmp_gt0000> created at line 151.
-    Found 10-bit comparator greater for signal <g_data$cmp_gt0001> created at line 147.
-    Found 10-bit comparator greater for signal <g_data$cmp_gt0002> created at line 144.
-    Found 10-bit comparator greater for signal <g_data$cmp_gt0003> created at line 143.
-    Found 10-bit comparator greater for signal <g_data$cmp_gt0004> created at line 142.
-    Found 10-bit comparator lessequal for signal <g_data$cmp_le0000> created at line 144.
-    Found 10-bit comparator lessequal for signal <g_data$cmp_le0001> created at line 147.
-    Found 10-bit comparator less for signal <g_data$cmp_lt0000> created at line 151.
-    Found 10-bit comparator less for signal <g_data$cmp_lt0001> created at line 147.
-    Found 10-bit comparator less for signal <g_data$cmp_lt0002> created at line 143.
-    Found 10-bit comparator less for signal <g_data$cmp_lt0003> created at line 142.
+    Found 10-bit comparator greater for signal <b_data$cmp_gt0000> created at line 160.
+    Found 10-bit comparator greater for signal <b_data$cmp_gt0001> created at line 159.
+    Found 10-bit comparator less for signal <b_data$cmp_lt0000> created at line 160.
+    Found 10-bit comparator less for signal <b_data$cmp_lt0001> created at line 159.
+    Found 10-bit comparator greatequal for signal <de_i$cmp_ge0000> created at line 97.
+    Found 10-bit comparator lessequal for signal <de_i$cmp_le0000> created at line 97.
+    Found 9-bit adder for signal <GPIO_OUT$add0000>.
+    Found 8-bit adder for signal <GPIO_OUT$add0001>.
+    Found 9-bit adder for signal <GPIO_OUT$addsub0000>.
+    Found 8-bit adder for signal <GPIO_OUT$addsub0001>.
+    Found 8-bit comparator greatequal for signal <GPIO_OUT$cmp_ge0000> created at line 144.
+    Found 8-bit adder carry in for signal <GPIO_OUT$mux0003>.
+    Found 9-bit subtractor for signal <GPIO_OUT$sub0000> created at line 145.
+    Found 8-bit adder for signal <GPIO_OUT$sub0001> created at line 147.
     Found 10-bit up counter for signal <hsync_cnt>.
-    Found 5-bit register for signal <r_data>.
     Found 10-bit up counter for signal <vsync_cnt>.
     Summary:
 	inferred   2 Counter(s).
-	inferred  16 D-type flip-flop(s).
-	inferred  14 Comparator(s).
+	inferred  13 D-type flip-flop(s).
+	inferred   7 Adder/Subtractor(s).
+	inferred   7 Comparator(s).
 Unit <TFT_LCD> synthesized.
 
 
 Synthesizing Unit <clk_25m>.
-    Related source file is "D:/ISE/TFT_LCD/clk_25m.vhd".
+    Related source file is "D:/ISE/modice/TFT_LCD/clk_25m.vhd".
 Unit <clk_25m> synthesized.
 
 
 Synthesizing Unit <top>.
-    Related source file is "D:/ISE/TFT_LCD/top.vhd".
+    Related source file is "D:/ISE/modice/TFT_LCD/top.vhd".
 Unit <top> synthesized.
 
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
 
 Macro Statistics
+# Adders/Subtractors                                   : 7
+ 8-bit adder                                           : 3
+ 8-bit adder carry in                                  : 1
+ 9-bit adder                                           : 2
+ 9-bit subtractor                                      : 1
 # Counters                                             : 2
  10-bit up counter                                     : 2
-# Registers                                            : 3
- 5-bit register                                        : 2
- 6-bit register                                        : 1
+# Registers                                            : 2
+ 5-bit register                                        : 1
+ 8-bit register                                        : 1
 # Latches                                              : 1
  1-bit latch                                           : 1
-# Comparators                                          : 14
- 10-bit comparator greatequal                          : 2
- 10-bit comparator greater                             : 5
- 10-bit comparator less                                : 4
- 10-bit comparator lessequal                           : 3
+# Comparators                                          : 7
+ 10-bit comparator greatequal                          : 1
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+ 10-bit comparator lessequal                           : 1
+ 8-bit comparator greatequal                           : 1
 
 =========================================================================
 
@@ -229,38 +240,48 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-INFO:Xst:2261 - The FF/Latch <g_data_0> in Unit <u_tft_lcd> is equivalent to the following 5 FFs/Latches, which will be removed : <g_data_1> <g_data_2> <g_data_3> <g_data_4> <g_data_5> 
 INFO:Xst:2261 - The FF/Latch <b_data_0> in Unit <u_tft_lcd> is equivalent to the following 4 FFs/Latches, which will be removed : <b_data_1> <b_data_2> <b_data_3> <b_data_4> 
-INFO:Xst:2261 - The FF/Latch <r_data_0> in Unit <u_tft_lcd> is equivalent to the following 4 FFs/Latches, which will be removed : <r_data_1> <r_data_2> <r_data_3> <r_data_4> 
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
+# Adders/Subtractors                                   : 7
+ 8-bit adder                                           : 4
+ 8-bit adder carry in                                  : 1
+ 9-bit adder                                           : 1
+ 9-bit subtractor                                      : 1
 # Counters                                             : 2
  10-bit up counter                                     : 2
-# Registers                                            : 16
- Flip-Flops                                            : 16
+# Registers                                            : 13
+ Flip-Flops                                            : 13
 # Latches                                              : 1
  1-bit latch                                           : 1
-# Comparators                                          : 14
- 10-bit comparator greatequal                          : 2
- 10-bit comparator greater                             : 5
- 10-bit comparator less                                : 4
- 10-bit comparator lessequal                           : 3
+# Comparators                                          : 7
+ 10-bit comparator greatequal                          : 1
+ 10-bit comparator greater                             : 2
+ 10-bit comparator less                                : 2
+ 10-bit comparator lessequal                           : 1
+ 8-bit comparator greatequal                           : 1
 
 =========================================================================
 
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-INFO:Xst:2261 - The FF/Latch <g_data_0> in Unit <TFT_LCD> is equivalent to the following 5 FFs/Latches, which will be removed : <g_data_1> <g_data_2> <g_data_3> <g_data_4> <g_data_5> 
-INFO:Xst:2261 - The FF/Latch <r_data_0> in Unit <TFT_LCD> is equivalent to the following 4 FFs/Latches, which will be removed : <r_data_1> <r_data_2> <r_data_3> <r_data_4> 
 INFO:Xst:2261 - The FF/Latch <b_data_0> in Unit <TFT_LCD> is equivalent to the following 4 FFs/Latches, which will be removed : <b_data_1> <b_data_2> <b_data_3> <b_data_4> 
 
 Optimizing unit <top> ...
 
 Optimizing unit <TFT_LCD> ...
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <u_tft_lcd/GPIO_OUT_0> of sequential type is unconnected in block <top>.
 
 Mapping all equations...
 Building and optimizing final netlist ...
@@ -272,8 +293,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 23
- Flip-Flops                                            : 23
+# Registers                                            : 21
+ Flip-Flops                                            : 21
 
 =========================================================================
 
@@ -302,23 +323,25 @@ Design Statistics
 # IOs                              : 20
 
 Cell Usage :
-# BELS                             : 113
+# BELS                             : 108
 #      GND                         : 1
 #      INV                         : 3
 #      LUT1                        : 18
-#      LUT2                        : 23
-#      LUT2_L                      : 2
-#      LUT3                        : 4
-#      LUT4                        : 18
-#      LUT4_D                      : 2
-#      LUT4_L                      : 2
+#      LUT2                        : 13
+#      LUT2_L                      : 3
+#      LUT3                        : 1
+#      LUT3_L                      : 1
+#      LUT4                        : 27
+#      LUT4_L                      : 1
 #      MUXCY                       : 18
 #      MUXF5                       : 1
 #      VCC                         : 1
 #      XORCY                       : 20
-# FlipFlops/Latches                : 24
-#      FDC                         : 10
-#      FDCE                        : 13
+# FlipFlops/Latches                : 22
+#      FDC                         : 9
+#      FDCE                        : 10
+#      FDP                         : 1
+#      FDPE                        : 1
 #      LD                          : 1
 # Clock Buffers                    : 2
 #      BUFG                        : 2
@@ -335,9 +358,9 @@ Device utilization summary:
 
 Selected Device : 3s2000fg456-4 
 
- Number of Slices:                       38  out of  20480     0%  
- Number of Slice Flip Flops:             23  out of  40960     0%  
- Number of 4 input LUTs:                 72  out of  40960     0%  
+ Number of Slices:                       36  out of  20480     0%  
+ Number of Slice Flip Flops:             21  out of  40960     0%  
+ Number of 4 input LUTs:                 67  out of  40960     0%  
  Number of IOs:                          20
  Number of bonded IOBs:                  20  out of    333     6%  
     IOB Flip Flops:                       1
@@ -365,7 +388,7 @@ Clock Information:
 --------------------------------------------------+-------------------------+-------+
 Clock Signal                                      | Clock buffer(FF name)   | Load  |
 --------------------------------------------------+-------------------------+-------+
-CLK                                               | u_clk_25m/DCM_INST:CLKFX| 23    |
+CLK                                               | u_clk_25m/DCM_INST:CLKFX| 21    |
 u_tft_lcd/de_i_not0001(u_tft_lcd/de_i_not000183:O)| NONE(*)(u_tft_lcd/de_i) | 1     |
 --------------------------------------------------+-------------------------+-------+
 (*) This 1 clock signal(s) are generated by combinatorial logic,
@@ -378,16 +401,16 @@ Asynchronous Control Signals Information:
 ------------------------------------+-------------------------+-------+
 Control Signal                      | Buffer(FF name)         | Load  |
 ------------------------------------+-------------------------+-------+
-RST_INV(u_tft_lcd/RSTB_inv1_INV_0:O)| NONE(u_tft_lcd/b_data_0)| 23    |
+RST_INV(u_tft_lcd/RSTB_inv1_INV_0:O)| NONE(u_tft_lcd/b_data_0)| 21    |
 ------------------------------------+-------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 1.777ns (Maximum Frequency: 562.746MHz)
+   Minimum period: 1.968ns (Maximum Frequency: 508.066MHz)
    Minimum input arrival time before clock: 2.821ns
-   Maximum output required time after clock: 7.367ns
+   Maximum output required time after clock: 7.285ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -396,10 +419,10 @@ All values displayed in nanoseconds (ns)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'CLK'
-  Clock period: 1.777ns (frequency: 562.746MHz)
-  Total number of paths / destination ports: 493 / 36
+  Clock period: 1.968ns (frequency: 508.065MHz)
+  Total number of paths / destination ports: 442 / 31
 -------------------------------------------------------------------------
-Delay:               7.108ns (Levels of Logic = 4)
+Delay:               7.873ns (Levels of Logic = 4)
   Source:            u_tft_lcd/hsync_cnt_2 (FF)
   Destination:       u_tft_lcd/hsync_cnt_9 (FF)
   Source Clock:      CLK rising 0.3X
@@ -410,14 +433,14 @@ Delay:               7.108ns (Levels of Logic = 4)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDC:C->Q              3   0.720   1.246  u_tft_lcd/hsync_cnt_2 (u_tft_lcd/hsync_cnt_2)
-     LUT4_D:I0->LO         1   0.551   0.126  u_tft_lcd/de_i_mux0003110 (N10)
-     LUT4:I3->O            1   0.551   0.869  u_tft_lcd/vsync_cnt_cmp_eq0001_SW0 (N4)
-     LUT4:I2->O           20   0.551   1.740  u_tft_lcd/vsync_cnt_cmp_eq0001 (u_tft_lcd/vsync_cnt_cmp_eq0001)
+     LUT4:I0->O            3   0.551   0.933  u_tft_lcd/de_i_mux0003110 (u_tft_lcd/N5)
+     LUT4:I3->O            1   0.551   0.827  u_tft_lcd/vsync_cnt_cmp_eq0001_SW0 (N2)
+     LUT4:I3->O           20   0.551   1.740  u_tft_lcd/vsync_cnt_cmp_eq0001 (u_tft_lcd/vsync_cnt_cmp_eq0001)
      LUT2:I1->O            1   0.551   0.000  u_tft_lcd/Mcount_hsync_cnt_eqn_01 (u_tft_lcd/Mcount_hsync_cnt_eqn_0)
-     FDC:D                     0.203          u_tft_lcd/hsync_cnt_0
+     FDP:D                     0.203          u_tft_lcd/hsync_cnt_0
     ----------------------------------------
-    Total                      7.108ns (3.127ns logic, 3.981ns route)
-                                       (44.0% logic, 56.0% route)
+    Total                      7.873ns (3.127ns logic, 4.746ns route)
+                                       (39.7% logic, 60.3% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'u_tft_lcd/de_i_not0001'
@@ -460,34 +483,34 @@ Offset:              7.078ns (Levels of Logic = 1)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'CLK'
-  Total number of paths / destination ports: 16 / 16
+  Total number of paths / destination ports: 5 / 5
 -------------------------------------------------------------------------
-Offset:              7.367ns (Levels of Logic = 1)
-  Source:            u_tft_lcd/g_data_0 (FF)
-  Destination:       data_out<10> (PAD)
+Offset:              7.285ns (Levels of Logic = 1)
+  Source:            u_tft_lcd/b_data_0 (FF)
+  Destination:       data_out<4> (PAD)
   Source Clock:      CLK rising 0.3X
 
-  Data Path: u_tft_lcd/g_data_0 to data_out<10>
+  Data Path: u_tft_lcd/b_data_0 to data_out<4>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCE:C->Q             6   0.720   1.003  u_tft_lcd/g_data_0 (u_tft_lcd/g_data_0)
-     OBUF:I->O                 5.644          data_out_10_OBUF (data_out<10>)
+     FDCE:C->Q             5   0.720   0.921  u_tft_lcd/b_data_0 (u_tft_lcd/b_data_0)
+     OBUF:I->O                 5.644          data_out_4_OBUF (data_out<4>)
     ----------------------------------------
-    Total                      7.367ns (6.364ns logic, 1.003ns route)
-                                       (86.4% logic, 13.6% route)
+    Total                      7.285ns (6.364ns logic, 0.921ns route)
+                                       (87.4% logic, 12.6% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 5.00 secs
-Total CPU time to Xst completion: 5.46 secs
+Total REAL time to Xst completion: 7.00 secs
+Total CPU time to Xst completion: 6.78 secs
  
 --> 
 
-Total memory usage is 251404 kilobytes
+Total memory usage is 251372 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    5 (   0 filtered)
-Number of infos    :    8 (   0 filtered)
+Number of warnings :   15 (   0 filtered)
+Number of infos    :    7 (   0 filtered)
 
