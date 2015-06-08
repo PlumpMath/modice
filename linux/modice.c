@@ -2,6 +2,7 @@
 
 void sig_handler(int signo, siginfo_t *info, void *context){
   close_gpio();
+  close_sound();
 }
 /*void add_sine_wave(int16_t* buffer, int buffer_length, float frequency, float sampling_ratio, float amplitude)
 {
@@ -17,6 +18,7 @@ int main(int argc, char*argv[]){
 //  int loc;
   unsigned i;
   int err;
+//  char buf[256];
   char c;
   struct sched_param sp;
   struct sigaction act = {.sa_sigaction=sig_handler, .sa_flags=SA_SIGINFO};
@@ -34,16 +36,30 @@ int main(int argc, char*argv[]){
   mlockall(MCL_CURRENT | MCL_FUTURE);
 
   setup_gpio();
+//  setup_sound();
 
   _INIT_GPIO(GPJ0_) = 0x11111111; //OUT
   _INIT_GPIO(GPJ3_) = 0; //IN
+//  while(1){
+//    int err;
+//    if ((err = snd_pcm_readi(capture_handle, buf, 256)) != 256){
+//      fprintf(stderr, "read from audio interface failed (%s)\n", snd_strerror(err));
+//      exit(1);
+//    }
+//    printf("%s\n",buf);
+//    GPIO_DAT(GPJ0_) = c;
+//    if ((err = snd_pcm_writei(playback_handle, (char *)_GPIO_DAT(GPJ3_), sizeof(char))) != sizeof(char)){
+//      fprintf(stderr, "write to audio interface failed (%s)\n", snd_strerror(err));
+//      exit(1);
+//    }
+//  }
   while((err = fread(&c, sizeof(char), sizeof(c), stdin))>0){
     GPIO_DAT(GPJ0_) = c;
-    usleep(1); //wait FPGA to edit the data
     fwrite((char*)_GPIO_DAT(GPJ3_), sizeof(char), sizeof(char), stdout);
   }
   GPIO_DAT(GPJ0_) = 0;
 
   close_gpio();
+//  close_sound();
   return 0;
 }

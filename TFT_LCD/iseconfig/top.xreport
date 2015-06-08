@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2015-06-08T17:31:39</DateModified>
+  <DateModified>2015-06-08T22:44:06</DateModified>
   <ModuleName>top</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>D:/ISE/modice/TFT_LCD/iseconfig/top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>D:/ISE/modice/TFT_LCD\</ImplementationReportsDirectory>
+  <SavedFilePath>C:/Users/Byoungwoo/IdeaProjects/vhdl/modice/TFT_LCD/iseconfig/top.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>C:/Users/Byoungwoo/IdeaProjects/vhdl/modice/TFT_LCD\</ImplementationReportsDirectory>
   <DateInitialized>2015-05-27T16:10:28</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>
