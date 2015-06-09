@@ -1,27 +1,27 @@
 V3 21
 FL D:/ISE/modice/TFT_LCD/clk_25m.vhd 2015/05/20.16:47:49 P.20131013
-EN work/clk_25m 1433798192 FL D:/ISE/modice/TFT_LCD/clk_25m.vhd \
+EN work/clk_25m 1433833466 FL D:/ISE/modice/TFT_LCD/clk_25m.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/NUMERIC_STD 1381692181 LB UNISIM \
       PH unisim/VCOMPONENTS 1381692182
-AR work/clk_25m/BEHAVIORAL 1433798193 \
-      FL D:/ISE/modice/TFT_LCD/clk_25m.vhd EN work/clk_25m 1433798192 CP BUFG \
+AR work/clk_25m/BEHAVIORAL 1433833467 \
+      FL D:/ISE/modice/TFT_LCD/clk_25m.vhd EN work/clk_25m 1433833466 CP BUFG \
       CP IBUFG CP DCM
 FL D:/ISE/modice/TFT_LCD/reg_dclk800.vhd 2015/06/09.02:59:40 P.20131013
 EN work/reg_dclk800 1433786408 FL D:/ISE/modice/TFT_LCD/reg_dclk800.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179
 AR work/reg_dclk800/Behavioral 1433786409 \
       FL D:/ISE/modice/TFT_LCD/reg_dclk800.vhd EN work/reg_dclk800 1433786408
-FL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd 2015/06/09.06:16:15 P.20131013
-EN work/TFT_LCD 1433798194 FL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd \
+FL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd 2015/06/09.16:04:22 P.20131013
+EN work/TFT_LCD 1433833468 FL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd \
       PB ieee/std_logic_1164 1381692176 PB ieee/STD_LOGIC_UNSIGNED 1381692179 \
       PB ieee/NUMERIC_STD 1381692181
-AR work/TFT_LCD/Behavioral 1433798195 \
-      FL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd EN work/TFT_LCD 1433798194
+AR work/TFT_LCD/Behavioral 1433833469 \
+      FL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd EN work/TFT_LCD 1433833468
 FL D:/ISE/modice/TFT_LCD/top.vhd 2015/06/09.05:13:46 P.20131013
-EN work/top 1433798196 FL D:/ISE/modice/TFT_LCD/top.vhd PB ieee/std_logic_1164 1381692176 \
+EN work/top 1433833470 FL D:/ISE/modice/TFT_LCD/top.vhd PB ieee/std_logic_1164 1381692176 \
       PB ieee/STD_LOGIC_UNSIGNED 1381692179 PB ieee/NUMERIC_STD 1381692181
-AR work/top/Behavioral 1433798197 \
-      FL D:/ISE/modice/TFT_LCD/top.vhd EN work/top 1433798196 CP clk_25m CP TFT_LCD
+AR work/top/Behavioral 1433833471 \
+      FL D:/ISE/modice/TFT_LCD/top.vhd EN work/top 1433833470 CP clk_25m CP TFT_LCD
 FL D:/ISE/TFT_LCD/clk_25m.vhd 2015/05/20.16:47:49 P.20131013
 FL D:/ISE/TFT_LCD/TFT_LCD.vhd 2015/06/03.17:21:59 P.20131013
 FL D:/ISE/TFT_LCD/top.vhd 2015/05/20.16:56:45 P.20131013

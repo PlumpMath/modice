@@ -129,7 +129,7 @@ begin
 	--C800: reg_dclk800 port map(clk=> clk, cnt=> clk_count);
 
 	mem(0)<= input;
-	process(dclk)
+	process(dclk, input)
 	begin
 		for I in 1 to 799 loop
 			mem(I)<= mem(I-1);

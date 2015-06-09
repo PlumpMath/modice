@@ -1,8 +1,8 @@
-EN clk_25m NULL D:/ISE/modice/TFT_LCD/clk_25m.vhd sub00/vhpl00 1433798192
-AR tft_lcd behavioral D:/ISE/modice/TFT_LCD/TFT_LCD.vhd sub00/vhpl03 1433798195
-EN top NULL D:/ISE/modice/TFT_LCD/top.vhd sub00/vhpl04 1433798196
+EN clk_25m NULL D:/ISE/modice/TFT_LCD/clk_25m.vhd sub00/vhpl00 1433833466
+AR tft_lcd behavioral D:/ISE/modice/TFT_LCD/TFT_LCD.vhd sub00/vhpl03 1433833469
+EN top NULL D:/ISE/modice/TFT_LCD/top.vhd sub00/vhpl04 1433833470
 EN reg_dclk800 NULL D:/ISE/modice/TFT_LCD/reg_dclk800.vhd sub00/vhpl06 1433786408
 AR reg_dclk800 behavioral D:/ISE/modice/TFT_LCD/reg_dclk800.vhd sub00/vhpl07 1433786409
-AR clk_25m behavioral D:/ISE/modice/TFT_LCD/clk_25m.vhd sub00/vhpl01 1433798193
-AR top behavioral D:/ISE/modice/TFT_LCD/top.vhd sub00/vhpl05 1433798197
-EN tft_lcd NULL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd sub00/vhpl02 1433798194
+AR clk_25m behavioral D:/ISE/modice/TFT_LCD/clk_25m.vhd sub00/vhpl01 1433833467
+AR top behavioral D:/ISE/modice/TFT_LCD/top.vhd sub00/vhpl05 1433833471
+EN tft_lcd NULL D:/ISE/modice/TFT_LCD/TFT_LCD.vhd sub00/vhpl02 1433833468

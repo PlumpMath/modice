@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-X-NL::  Tue Jun 09 06:17:01 2015
+X-NL::  Tue Jun 09 16:04:56 2015
 
 par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
 
@@ -90,9 +90,9 @@ Starting Router
 
 Phase  1  : 427 unrouted;      REAL time: 3 secs 
 
-Phase  2  : 383 unrouted;      REAL time: 3 secs 
+Phase  2  : 383 unrouted;      REAL time: 4 secs 
 
-Phase  3  : 63 unrouted;      REAL time: 3 secs 
+Phase  3  : 63 unrouted;      REAL time: 4 secs 
 
 Phase  4  : 72 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
@@ -102,15 +102,15 @@ Updating file: top.ncd with current fully routed design.
 
 Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
-Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  9  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 WARNING:Route:455 - CLK Net:lcd_clk_OBUF may have excessive skew because 
       0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 5 secs 
+Total REAL time to Router completion: 6 secs 
 Total CPU time to Router completion: 5 secs 
 
 Partition Implementation Status
