@@ -55,6 +55,7 @@ int main(int argc, char*argv[]){
 //  }
   while((err = fread(&c, sizeof(char), sizeof(c), stdin))>0){
     GPIO_DAT(GPJ0_) = c;
+//    nanosleep(125*1000); // force 8kHz by 1000000(us)/8000
     fwrite((char*)_GPIO_DAT(GPJ3_), sizeof(char), sizeof(char), stdout);
   }
   GPIO_DAT(GPJ0_) = 0;
