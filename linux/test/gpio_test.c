@@ -1,21 +1,26 @@
-#include "modice.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <signal.h>
+#include <sys/mman.h>
+#include <sched.h>
 
-void sig_handler(int signo, siginfo_t *info, void *context){
-  close_gpio();
+//#include <alsa/asoundlib.h>
+#include "gpio_pins.h"
+#include "gpio_macros.h"
+
+void *gpio_map;
+
+// I/O access
+volatile unsigned *gpio;
+
+void close_all(){
+  munmap((caddr_t)gpio_map, BLOCK_SIZE);
+  exit(0);
 }
-/*void direct_sound(){
-    int err;
-    char buf[256];
-    if ((err = snd_pcm_readi(capture_handle, buf, 256)) != 256){
-      fprintf(stderr, "read from audio interface failed (%s)\n", snd_strerror(err));
-      exit(1);
-    }
-    GPIO_DAT(GPJ0_) = c; //send to FPGA
-    if ((err = snd_pcm_writei(playback_handle, (char *)_GPIO_DAT(GPJ3_), sizeof(char))) != sizeof(char)){
-      fprintf(stderr, "write to audio interface failed (%s)\n", snd_strerror(err));
-      exit(1);
-  }
-}*/
+void sig_handler(int signo, siginfo_t *info, void *context){
+  close_all();
+}
 /*void add_sine_wave(int16_t* buffer, int buffer_length, float frequency, float sampling_ratio, float amplitude)
 {
     for (int i = 0; i < buffer_length; i++)
@@ -30,7 +35,7 @@ int main(int argc, char*argv[]){
 //  int loc;
   unsigned i;
   int err;
-  char c;
+  unsigned char c;
   struct sched_param sp;
   struct sigaction act = {.sa_sigaction=sig_handler, .sa_flags=SA_SIGINFO};
 
@@ -47,20 +52,17 @@ int main(int argc, char*argv[]){
   mlockall(MCL_CURRENT | MCL_FUTURE);
 
   setup_gpio();
-//  setup_sound();
 
   _INIT_GPIO(GPJ0_) = 0x11111111; //OUT
   _INIT_GPIO(GPJ3_) = 0; //IN
 
-//  while(1) direct_sound();
-  while((err = fread(&c, sizeof(char), sizeof(c), stdin))>0){
-    GPIO_DAT(GPJ0_) = c; //send to FPGA
-//    nanosleep(125*1000); // force 8kHz by 1000000(us)/8000
-    fwrite((char*)_GPIO_DAT(GPJ3_), sizeof(char), sizeof(char), stdout);
+  for(i=0;i<0xFFFFFFFF;i++){
+    GPIO_DAT(GPJ0_) = i&0xFF;
+    usleep(1);
+    fprintf(stdout, "%X %X\n",i&0xFF, GPIO_DAT(GPJ3_));
   }
   GPIO_DAT(GPJ0_) = 0;
 
-  close_gpio();
-//  close_sound();
+  close_all();
   return 0;
 }

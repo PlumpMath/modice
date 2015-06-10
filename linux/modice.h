@@ -19,10 +19,11 @@ void setup_gpio();
 void close_gpio();
 
 /* Audio definitions */
+/*
 char sndbuf;
 snd_pcm_t *playback_handle;
 snd_pcm_t *capture_handle;
 snd_pcm_hw_params_t *hw_params;
 
 void setup_sound();
-void close_sound();
+void close_sound();*/
