@@ -32,5 +32,4 @@ void setup_gpio()
 
 void close_gpio(){
   munmap((caddr_t)gpio_map, BLOCK_SIZE);
-  exit(0);
 }
