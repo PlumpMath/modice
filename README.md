@@ -15,3 +15,10 @@ Syslab2 embedded kit based realtime voice modifier
 - gpio_mmap_test_J3.png : Digital probe test result with counting full 8 bits 0~0xFF
 - gpio_mmap_test.png : Digital probe test result with mmap, without scheduling
 - gpio_mmap_sched_test.png : Digital probe test result with schedule set maximum(sched.h)
+
+## How to use
+1. Record a wav file or convert from other audio type and remove it's header to make it raw audio file.
+2. Rename it to audio.raw for ease.
+3. `cat audio.raw | aplay` plays original file
+4. `cat audio.raw | ./modice | aplay` plays sound modified by FPGA
+5. `cat audio.raw | ./modice > out.raw` to save its output to another file named out.raw.
